@@ -1,10 +1,12 @@
 COLOURS = {}
 COLOURS["RED"] = "\033[31m"
 COLOURS["GREEN"] = "\033[32m"
+COLOURS['BLUE'] = "\033[34m"
+COLOURS['YELLOW'] = "\033[33m"
 COLOURS["RESET"] = "\033[0m"
 
 
-def grep(pattern: list, file_name: str, nc: bool, word: bool = False) -> list[any]:
+def grep(pattern: list, file_name: str, nc: bool, word: bool = False) -> list:
     lines = []
     with open(file_name, "r") as f:
         x = 1
