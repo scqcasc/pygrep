@@ -3,7 +3,7 @@ from libs import grep, display
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("-f", "--file", action="store", help="Define file to grep")
+    parser.add_argument("-f", "--file", action="store", help="Define file to grep.")
     parser.add_argument(
         "-p",
         "--pattern",
@@ -14,12 +14,13 @@ if __name__ == "__main__":
         "--nc",
         action="store_true",
         default=False,
-        help="Turn off colour of found pattern",
+        help="Turn off colour of found pattern.",
     )
     parser.add_argument(
-        "--ln", action="store_true", default=False, help="Turn on line numbers"
+        "--ln", action="store_true", default=False, help="Turn on line numbers."
     )
+    parser.add_argument("-w", "--word", action="store_true", default=False, help="Search for whole word only.")
 
     args = parser.parse_args()
-    results = grep(args.pattern, args.file, args.nc)
+    results = grep(args.pattern, args.file, args.nc, args.word)
     display(results, args.ln)

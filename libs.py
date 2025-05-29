@@ -4,13 +4,15 @@ COLOURS["GREEN"] = "\033[32m"
 COLOURS["RESET"] = "\033[0m"
 
 
-def grep(pattern: list, file_name: str, nc: bool) -> list[any]:
+def grep(pattern: list, file_name: str, nc: bool, word: bool = False) -> list[any]:
     lines = []
     with open(file_name, "r") as f:
         x = 1
         for line in f.readlines():
             line = line.strip()
             for p in pattern:
+                if word:
+                    p = f' {p} '
                 if p in line:
                     if not nc:
                         line = line.replace(
