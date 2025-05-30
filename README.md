@@ -45,4 +45,5 @@ SOFTWARE.
 ## TODO
 - [ ] Allow for different colours by pattern
 - [ ] Allow for stdin as input
+- [x] Catch of no args are used
 - [ ] Support actual regular expressions (because, you know ... gREp)

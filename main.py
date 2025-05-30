@@ -1,4 +1,5 @@
 import argparse
+import sys
 from libs import grep, display
 
 if __name__ == "__main__":
@@ -8,7 +9,7 @@ if __name__ == "__main__":
         "-p",
         "--pattern",
         action="append",
-        help="Pattern to search for.  Use multiple --patterns if wanted.",
+        help="Pattern to search for.  Use multiple --patterns if wanted. You must define at least one pattern.",
     )
     parser.add_argument(
         "--nc",
@@ -22,5 +23,8 @@ if __name__ == "__main__":
     parser.add_argument("-w", "--word", action="store_true", default=False, help="Search for whole word only.")
 
     args = parser.parse_args()
+    if args.pattern is None:
+        parser.print_help(sys.stderr)        
+        sys.exit(1)
     results = grep(args.pattern, args.file, args.nc, args.word)
     display(results, args.ln)
