@@ -16,10 +16,10 @@ def parse_pattern(pattern: str, nf: bool) -> tuple:
 
             # if they try an undefined colour default to green
             try:
-                COLOURS[c]
+                COLOURS[c.upper()]
             except KeyError:
                 c = 'GREEN'
-    return (p, c)
+    return (p, c.upper())
 
 def grep(pattern: list, file_name: str, nc: bool, word: bool = False, nf: bool = False) -> list:
     lines = []
