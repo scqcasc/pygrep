@@ -1,11 +1,12 @@
 import argparse
 import sys
-from libs import grep, display
+from libs import grep, display, show_colours
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.prog = 'pygrep'
     parser.add_argument("-f", "--file", action="store", help="Define file to grep.")
+    parser.add_argument("-sc", action="store_true", default=False, help="Show available colours and exit.")
     parser.add_argument(
         "-p",
         "--pattern",
@@ -25,8 +26,15 @@ if __name__ == "__main__":
     parser.add_argument("-nf", action="store_true", default=False, help="No fancy colour specification.")
 
     args = parser.parse_args()
+    if args.sc:
+        show_colours()
+        sys.exit(0)
+
     if args.pattern is None:
         parser.print_help(sys.stderr)
         sys.exit(1)
+
+
+
     results = grep(args.pattern, args.file, args.nc, args.word, args.nf)
     display(results, args.ln)

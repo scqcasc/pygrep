@@ -47,7 +47,7 @@ SOFTWARE.
 Fancy colours
 Each pattern can have its own colour defined.  Add ^^COLOUR_NAME to the pattern
 ```
-$  python main.py -f LICENSE -p IS --pattern ARE^^RED --pattern Sean^^BLUE
+$  python main.py -f LICENSE -p IS --pattern ARE^^RED --pattern Sean^^blue
 ```
 will colour 'ARE' matches red and 'Sean' matches blue.
 

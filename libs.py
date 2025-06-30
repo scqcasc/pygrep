@@ -52,3 +52,9 @@ def display(results: list, ln: bool) -> None:
             print(f"{result[1]}")
         if ln:
             print(f"{result[0]}\t{result[1]}")
+
+def show_colours():
+    print("Available colours:")
+    for k in COLOURS.keys():
+        if not k == "RESET":
+            print(f"\t{k}")
