@@ -4,6 +4,7 @@ from libs import grep, display
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
+    parser.prog = 'pygrep'
     parser.add_argument("-f", "--file", action="store", help="Define file to grep.")
     parser.add_argument(
         "-p",
