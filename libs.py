@@ -10,7 +10,7 @@ COLOURS["RESET"] = "\033[0m"
 def grep(pattern: list, file_name: str, nc: bool, word: bool = False) -> list:
     lines = []
     with open(file_name, "r") as f:
-        x = 1
+        x = 1         # x is the line number which gets added to the grepped data
         for line in f.readlines():
             line = line.strip()
             for p in pattern:
