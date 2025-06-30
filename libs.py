@@ -1,3 +1,4 @@
+
 COLOURS = {}
 COLOURS["RED"] = "\033[31m"
 COLOURS["GREEN"] = "\033[32m"
@@ -14,6 +15,7 @@ def grep(pattern: list, file_name: str, nc: bool, word: bool = False) -> list:
             line = line.strip()
             for p in pattern:
                 if word:
+                    # if word option is used the surround the pattern with white space
                     p = f' {p} '
                 if p in line:
                     if not nc:
