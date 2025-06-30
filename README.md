@@ -10,10 +10,11 @@ options:
   -h, --help            show this help message and exit
   -f, --file FILE       Define file to grep.
   -p, --pattern PATTERN
-                        Pattern to search for. Use multiple --patterns if wanted.
+                        Pattern to search for. Use multiple --patterns if wanted. You must define at least one pattern.
   --nc                  Turn off colour of found pattern.
   --ln                  Turn on line numbers.
   -w, --word            Search for whole word only.
+  -nf                   No fancy colour specification.
 ```
 
 ## Examples
@@ -42,8 +43,18 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 ```
+
+Fancy colours
+Each pattern can have its own colour defined.  Add ^^COLOUR_NAME to the pattern
+```
+$  python main.py -f LICENSE -p IS --pattern ARE^^RED --pattern Sean^^BLUE
+```
+will colour 'ARE' matches red and 'Sean' matches blue.
+
+This behaviour can be turned off with the -nf flag.
+
 ## TODO
-- [ ] Allow for different colours by pattern
+- [x] Allow for different colours by pattern
 - [ ] Allow for stdin as input
 - [x] Catch of no args are used
 - [ ] Support actual regular expressions (because, you know ... gREp)

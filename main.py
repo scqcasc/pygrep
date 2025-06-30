@@ -21,10 +21,11 @@ if __name__ == "__main__":
         "--ln", action="store_true", default=False, help="Turn on line numbers."
     )
     parser.add_argument("-w", "--word", action="store_true", default=False, help="Search for whole word only.")
+    parser.add_argument("-nf", action="store_true", default=False, help="No fancy colour specification.")
 
     args = parser.parse_args()
     if args.pattern is None:
-        parser.print_help(sys.stderr)        
+        parser.print_help(sys.stderr)
         sys.exit(1)
-    results = grep(args.pattern, args.file, args.nc, args.word)
+    results = grep(args.pattern, args.file, args.nc, args.word, args.nf)
     display(results, args.ln)
